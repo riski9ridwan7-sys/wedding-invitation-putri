@@ -1,0 +1,333 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fdfaf6;
+    color:#333;
+    overflow-x:hidden;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    width:100%;
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.sub-title{
+    font-size:18px;
+    letter-spacing:4px;
+}
+
+.hero h1{
+    font-size:64px;
+    margin:20px 0;
+}
+
+.hero span{
+    color:#d4af37;
+}
+
+.date{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+#btnBuka{
+    padding:15px 35px;
+    background:#d4af37;
+    color:#fff;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#btnBuka:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+   ISI UNDANGAN
+========================= */
+
+#isiUndangan{
+    display:none;
+}
+
+.mempelai,
+.acara{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.mempelai h2,
+.acara h2{
+    margin-bottom:30px;
+    color:#b68d2c;
+}
+
+.card{
+    width:320px;
+    max-width:100%;
+    margin:35px auto;
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.card img{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #d4af37;
+}
+
+.card h3{
+    margin-top:20px;
+    font-size:28px;
+}
+
+.card p{
+    margin-top:10px;
+    color:#666;
+}
+
+.acara{
+    background:#fff;
+}
+
+.acara p{
+    margin:15px 0;
+    font-size:18px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:42px;
+}
+
+.card{
+    width:95%;
+}
+
+.card img{
+    width:180px;
+    height:180px;
+}
+
+#btnBuka{
+    width:100%;
+}
+
+}/* =========================
+   QUOTES
+========================= */
+
+.quotes{
+    padding:80px 20px;
+    text-align:center;
+    background:#fffaf5;
+}
+
+.quotes h2{
+    color:#b68d2c;
+    margin-bottom:25px;
+}
+
+.ayat{
+    max-width:700px;
+    margin:auto;
+    line-height:2;
+    color:#555;
+    font-size:18px;
+}
+
+.quotes h4{
+    margin-top:20px;
+}
+
+/* =========================
+   LOVE STORY
+========================= */
+
+.story{
+    padding:80px 20px;
+    background:#f8f8f8;
+}
+
+.story h2{
+    text-align:center;
+    margin-bottom:50px;
+    color:#b68d2c;
+}
+
+.timeline{
+    max-width:800px;
+    margin:auto;
+}
+
+.box{
+    background:white;
+    padding:25px;
+    border-left:5px solid #d4af37;
+    border-radius:10px;
+    margin-bottom:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.box h3{
+    margin-bottom:10px;
+}/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+    padding:80px 20px;
+    text-align:center;
+    background:#fffaf5;
+}
+
+.countdown h2{
+    color:#b68d2c;
+    margin-bottom:40px;
+    font-size:32px;
+}
+
+
+.timer{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+
+.timer div{
+    width:100px;
+    padding:20px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+
+.timer span{
+    font-size:38px;
+    font-weight:bold;
+    color:#d4af37;
+}
+
+
+.timer p{
+    margin-top:10px;
+    color:#555;
+}/* =========================
+   HARAPAN
+========================= */
+
+.harapan{
+    padding:80px 20px;
+    text-align:center;
+    background:#fffaf5;
+}
+
+.harapan h2{
+    color:#b68d2c;
+    margin-bottom:30px;
+}
+
+.harapan p{
+    max-width:700px;
+    margin:auto;
+    line-height:2;
+    color:#555;
+    font-size:18px;
+}
+
+.harapan .nama{
+    margin-top:35px;
+    font-size:28px;
+    font-weight:bold;
+    color:#b68d2c;
+}/* =========================
+   LOKASI
+========================= */
+
+
+.lokasi{
+
+    margin-top:35px;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+}
+
+
+.lokasi h3{
+
+    color:#b68d2c;
+    margin-bottom:15px;
+
+}
+
+
+.lokasi p{
+
+    color:#666;
+    margin-bottom:20px;
+
+}
+
+
+.lokasi a{
+
+    display:inline-block;
+    padding:12px 25px;
+    background:#d4af37;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+
+}
+
+
+.lokasi a:hover{
+
+    transform:scale(1.05);
+
+}
