@@ -1,4 +1,32 @@
 // =====================
+// LOADING SCREEN
+// =====================
+
+window.addEventListener("load", function(){
+
+    const loading = document.getElementById("loading");
+
+    if(loading){
+
+        setTimeout(function(){
+
+            loading.style.opacity = "0";
+
+            setTimeout(function(){
+
+                loading.style.display = "none";
+
+            },500);
+
+        },1000);
+
+    }
+
+});
+
+
+
+// =====================
 // BUKA UNDANGAN
 // =====================
 
@@ -9,20 +37,35 @@ const hero = document.getElementById("hero");
 
 if(btn){
 
-    btn.onclick = function(){
+    btn.addEventListener("click", function(){
 
-        hero.style.display = "none";
+        if(hero){
 
-        isi.style.display = "block";
+            hero.style.display = "none";
+
+        }
+
+
+        if(isi){
+
+            isi.style.display = "block";
+
+        }
+
 
         window.scrollTo({
+
             top:0,
+
             behavior:"smooth"
+
         });
 
-    };
+
+    });
 
 }
+
 
 
 
@@ -31,28 +74,36 @@ if(btn){
 // =====================
 
 
-const targetDate = new Date("June 15, 2026 10:00:00").getTime();
+const targetDate = new Date(
+    "August 15, 2026 10:00:00"
+).getTime();
 
 
-setInterval(function(){
+
+const countdownTimer = setInterval(function(){
 
 
     const now = new Date().getTime();
+
 
     const distance = targetDate - now;
 
 
 
-    // Kalau tanggal sudah lewat
-
     if(distance < 0){
 
+
+        clearInterval(countdownTimer);
+
+
+
         const countdown = document.querySelector(".countdown");
+
 
         if(countdown){
 
             countdown.innerHTML = `
-            
+
             <h2>
             🤍 Hari Bahagia Telah Tiba 🤍
             </h2>
@@ -66,73 +117,191 @@ setInterval(function(){
 
         }
 
+
         return;
+
 
     }
 
 
 
-
     const hari = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
+        distance /
+        (1000 * 60 * 60 * 24)
     );
 
 
+
     const jam = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
+        (distance %
+        (1000 * 60 * 60 * 24)) /
         (1000 * 60 * 60)
     );
 
 
+
     const menit = Math.floor(
-        (distance % (1000 * 60 * 60)) /
+        (distance %
+        (1000 * 60 * 60)) /
         (1000 * 60)
     );
 
 
+
     const detik = Math.floor(
-        (distance % (1000 * 60)) /
+        (distance %
+        (1000 * 60)) /
         1000
     );
 
 
 
-
-
-    const elHari = document.getElementById("hari");
-    const elJam = document.getElementById("jam");
-    const elMenit = document.getElementById("menit");
-    const elDetik = document.getElementById("detik");
+    const hariEl = document.getElementById("hari");
+    const jamEl = document.getElementById("jam");
+    const menitEl = document.getElementById("menit");
+    const detikEl = document.getElementById("detik");
 
 
 
-    if(elHari){
-
-        elHari.innerHTML = hari;
-
-    }
+    if(hariEl)
+        hariEl.innerHTML = hari;
 
 
-    if(elJam){
-
-        elJam.innerHTML = jam;
-
-    }
+    if(jamEl)
+        jamEl.innerHTML = jam;
 
 
-    if(elMenit){
-
-        elMenit.innerHTML = menit;
-
-    }
+    if(menitEl)
+        menitEl.innerHTML = menit;
 
 
-    if(elDetik){
-
-        elDetik.innerHTML = detik;
-
-    }
+    if(detikEl)
+        detikEl.innerHTML = detik;
 
 
 
 },1000);
+
+
+
+
+
+
+// =====================
+// MUSIK
+// =====================
+
+
+const musicBtn = document.getElementById("musicBtn");
+const musik = document.getElementById("musik");
+
+
+let musicPlay = false;
+
+
+
+if(musicBtn && musik){
+
+
+    musicBtn.addEventListener("click", function(){
+
+
+        if(musicPlay){
+
+
+            musik.pause();
+
+            musicBtn.innerHTML = "🎵";
+
+
+        }else{
+
+
+            musik.play();
+
+            musicBtn.innerHTML = "⏸️";
+
+
+        }
+
+
+
+        musicPlay = !musicPlay;
+
+
+
+    });
+
+
+}
+
+
+
+
+
+
+// =====================
+// BACK TO TOP
+// =====================
+
+
+const backBtn = document.getElementById("backToTop");
+
+
+
+if(backBtn){
+
+
+    backBtn.addEventListener("click", function(){
+
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+
+    });
+
+
+}
+
+
+
+
+
+
+// =====================
+// ANIMASI SCROLL SIMPLE
+// =====================
+
+
+window.addEventListener("scroll", function(){
+
+
+    if(backBtn){
+
+
+        if(window.scrollY > 500){
+
+
+            backBtn.style.display="block";
+
+
+        }else{
+
+
+            backBtn.style.display="none";
+
+
+        }
+
+
+    }
+
+
+
+});
