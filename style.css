@@ -87,8 +87,7 @@ body{
         rgba(0,0,0,.8)
     ),
 
-    url("assets/background.jpg");
-
+    url("assets/img/bgg.png");
     background-size:cover;
     background-position:center;
 
