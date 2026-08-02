@@ -117,38 +117,27 @@ body{
 ========================================= */
 
 .hero{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
 
-    position:relative;
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    overflow:hidden;
-
-
-    background:
-
+    background: 
     linear-gradient(
-        rgba(226, 217, 135, 0.699),
-        rgba(0,0,0,.90)
+        rgba(0,0,0,.60),
+        rgba(0,0,0,.85)
     ),
+    url("assets/img/hero/bg.png");
 
-    url("assets/img/hero/bck-crem.jpg");
-
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:scroll;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
 }
-
 
 
 
@@ -2188,31 +2177,6 @@ footer{
         font-size:36px;
     }
 
-}
-
-
-/* =========================================
-   ACEH MARK BACKGROUND
-========================================= */
-
-.aceh-mark{
-    position:absolute;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.25),
-            rgba(0,0,0,.45)
-        ),
-        url("assets/img/hero/pintu-aceh-pattern.png");
-
-    background-size:700px;
-    background-repeat:repeat;
-    background-position:center;
-
-    opacity:.12;
 }
 
 
