@@ -1,38 +1,87 @@
+/* =========================================
+   RESET
+========================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-
 html{
     scroll-behavior:smooth;
 }
 
-
 body{
-    font-family:'Poppins',sans-serif;
+
+    font-family:'Poppins', sans-serif;
+
     background:#0b0b0b;
-    color:#fff;
+
+    color:#f5f5f5;
+
+    overflow-x:hidden;
+
 }
 
 
+/* =========================================
+   VARIABLES
+========================================= */
 
-/* ================= LOADING ================= */
+:root{
+
+    --gold:#d4af37;
+
+    --gold-light:#f7e7a9;
+
+    --black:#0b0b0b;
+
+    --dark:#111;
+
+    --white:#ffffff;
+}
+
+
+ /* =========================================
+   LOADING
+ ========================================= */
+
 
 #loading{
 
     position:fixed;
-    width:100%;
-    height:100vh;
-    background:#050505;
+
+    inset:0;
+
+    background:#0b0b0b;
 
     display:flex;
-    flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 
+    flex-direction:column;
+
     z-index:9999;
+
+}
+
+
+.loader-ring{
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius:100%;
+
+    border:3px solid rgba(212,175,55,.3);
+
+    border-top-color:var(--gold);
+
+    animation:spin 1s linear infinite;
 
 }
 
@@ -40,120 +89,680 @@ body{
 #loading h2{
 
     margin-top:20px;
-    color:#d4af37;
 
     font-family:'Cormorant Garamond',serif;
+
     letter-spacing:3px;
 
-}
-
-
-.loader{
-
-    width:60px;
-    height:60px;
-
-    border:3px solid rgba(212,175,55,.2);
-    border-top:3px solid #d4af37;
-
-    border-radius:50%;
-
-    animation:spin 1s linear infinite;
+    color:var(--gold);
 
 }
+
 
 
 @keyframes spin{
 
     to{
+
         transform:rotate(360deg);
+
     }
 
 }
 
 
 
-/* ================= HERO ================= */
-
+/* =========================================
+   HERO LUXURY ACEH
+========================================= */
 
 .hero{
 
-    height:100vh;
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
 
     background:
 
     linear-gradient(
-        rgba(0,0,0,.55),
-        rgba(0,0,0,.8)
+        rgba(226, 217, 135, 0.699),
+        rgba(0,0,0,.90)
     ),
 
-    url("assets/img/bgg.png");
+    url("assets/img/hero/bck-crem.jpg");
+
+
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:scroll;
+}
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
 
-    text-align:center;
 
-    position:relative;
+
+@keyframes goldGlow{
+
+    0%,
+    100%{
+
+        opacity:.4;
+
+        transform:
+        translate(-50%,-50%)
+        scale(1);
+
+    }
+
+
+    50%{
+
+        opacity:.8;
+
+        transform:
+        translate(-50%,-50%)
+        scale(1.2);
+
+    }
 
 }
 
 
+
+@keyframes sparkleMove{
+
+    from{
+
+        background-position:0 0;
+
+    }
+
+
+    to{
+
+        background-position:120px 240px;
+
+    }
+
+}
+
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
 
 .hero-content{
 
     position:relative;
+
+    z-index:5;
+
+}
+
+
+/* overlay */
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(212,175,55,.12),
+        transparent 60%
+    );
+
+    z-index:1;
+
+}
+
+
+
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}/* =========================================
+   ORNAMENT ACEH
+========================================= */
+
+.ornament-top,
+.ornament-bottom{
+
+    position:absolute;
+
+    width:280px;
+
+    opacity:.65;
+
     z-index:2;
 
-    padding:20px;
+    pointer-events:none;
+
+}
+
+
+.ornament-top{
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    animation:ornamentFade 2s ease;
+
+}
+
+
+.ornament-bottom{
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    animation:ornamentFade 2.5s ease;
+
+}
+
+
+@keyframes ornamentFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-50%) translateY(-30px);
+
+    }
+
+
+    to{
+
+        opacity:.65;
+
+        transform:translateX(-50%) translateY(0);
+
+    }
 
 }
 
 
 
-.sub-title{
+/* =========================================
+   PINTU ACEH LOGO
+========================================= */
 
-    letter-spacing:8px;
+
+.hero-logo{
+
+    width:150px;
+
+    max-width:40vw;
+
+    margin-bottom:25px;
+
+    filter:
+
+    drop-shadow(0 0 15px rgba(212,175,55,.5));
+
+    animation:
+
+    logoFloat 5s ease-in-out infinite;
+
+}
+
+
+
+@keyframes logoFloat{
+
+    0%,
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+}
+
+
+
+/* =========================================
+   BISMILLAH
+========================================= */
+
+
+.bismillah{
+
+    font-size:28px;
+
+    color:var(--gold-light);
+
+    margin-bottom:25px;
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+}
+
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+
+.hero-subtitle{
+
+    display:block;
+
     font-size:14px;
 
-    color:#d4af37;
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#ddd;
+
+    margin-bottom:15px;
 
 }
 
 
 
-.hero h1{
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:90px;
-
-    margin:20px 0;
-
-    color:#f5d77b;
-
-    font-weight:700;
-
-}
+/* =========================================
+   NAMA PENGANTIN
+========================================= */
 
 
+.hero-title{
 
-.hero h1 span{
+    font-family:
 
-    font-size:60px;
+    'Cormorant Garamond',
+    serif;
+
+    font-size:75px;
+
+    font-weight:600;
+
+    line-height:1;
 
     color:white;
 
+    margin-bottom:30px;
+
+}
+
+
+.hero-title span{
+
+    color:var(--gold);
+
+    margin:0 15px;
+
 }
 
 
 
-.date{
+/* =========================================
+   TANGGAL
+========================================= */
 
-    font-size:22px;
+
+.hero-date{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:#eee;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.hero-date h2{
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:80px;
+
+    color:var(--gold);
+
+    line-height:1;
+
+}
+
+
+.hero-date span{
+
+    font-size:15px;
+
+    letter-spacing:2px;
+
+}
+
+
+
+/* =========================================
+   GUEST CARD
+========================================= */
+
+
+.guest-card{
+
+    background:
+
+    rgba(255,255,255,.05);
+
+    border:
+
+    1px solid rgba(212,175,55,.3);
+
+    backdrop-filter:blur(10px);
+
+    padding:18px 30px;
+
+    border-radius:20px;
+
+    display:inline-block;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.guest-card small{
+
+    color:#ccc;
+
+}
+
+
+.guest-card h3{
+
+    margin-top:5px;
+
+    color:var(--gold-light);
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:25px;
+
+}
+
+
+
+/* =========================================
+   BUTTON OPEN
+========================================= */
+
+
+.btn-open{
+
+    padding:15px 45px;
+
+    border-radius:50px;
+
+    border:1px solid var(--gold);
+
+    background:transparent;
+
+    color:white;
+
+    font-size:15px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+.btn-open:hover{
+
+    background:var(--gold);
+
+    color:#111;
+
+    box-shadow:
+
+    0 0 25px rgba(212,175,55,.6);
+
+}/* =========================================
+   SPARKLE EFFECT ✨
+========================================= */
+
+.sparkle{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    background-image:
+
+    radial-gradient(
+        circle,
+        rgba(255,255,255,.9) 1px,
+        transparent 2px
+    );
+
+    background-size:120px 120px;
+
+    animation:sparkleMove 8s linear infinite;
+
+    opacity:.35;
+
+}
+
+
+
+
+/* =========================================
+   GOLD DUST EFFECT 🌟
+========================================= */
+
+
+.gold-dust{
+
+    position:absolute;
+
+    inset:-50%;
+
+    z-index:2;
+
+    pointer-events:none;
+
+
+    background-image:
+
+    radial-gradient(
+        circle,
+        rgba(212,175,55,.45) 1px,
+        transparent 3px
+    );
+
+
+    background-size:
+
+    80px 80px;
+
+
+    animation:
+
+    dustMove 18s linear infinite;
+
+
+    opacity:.4;
+
+}
+
+
+
+
+
+
+/* =========================================
+   SOFT GOLD GLOW 💡
+========================================= */
+
+
+.soft-glow{
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(212,175,55,.22),
+
+    transparent 70%
+
+    );
+
+
+    filter:blur(40px);
+
+
+    top:50%;
+
+    left:50%;
+
+
+    transform:
+
+    translate(-50%,-50%);
+
+
+    z-index:1;
+
+
+    animation:
+
+    glowPulse 6s ease-in-out infinite;
+
+}
+
+
+
+
+@keyframes glowPulse{
+
+
+    0%,
+    100%{
+
+        opacity:.4;
+
+        transform:
+
+        translate(-50%,-50%)
+        scale(1);
+
+    }
+
+
+
+    50%{
+
+        opacity:.8;
+
+        transform:
+
+        translate(-50%,-50%)
+        scale(1.15);
+
+    }
+
+
+}
+
+
+
+/* =========================================
+   SCROLL MOUSE
+========================================= */
+
+
+.scroll-down{
+
+    margin-top:40px;
+
+    color:#ccc;
+
+    font-size:12px;
 
     letter-spacing:3px;
 
@@ -161,97 +770,291 @@ body{
 
 
 
-.guest{
+.mouse{
 
-    margin-top:40px;
+    width:25px;
 
-}
+    height:40px;
 
+    border:2px solid var(--gold);
 
+    border-radius:20px;
 
-.guest h3{
+    margin:15px auto;
 
-    color:#d4af37;
-
-    margin-top:10px;
-
-}
-
-
-
-button{
-
-    cursor:pointer;
+    position:relative;
 
 }
 
 
 
-/* BUTTON */
+.wheel{
 
+    width:5px;
 
-#btnBuka{
+    height:8px;
 
-    margin-top:35px;
+    background:var(--gold);
 
-    padding:15px 45px;
+    border-radius:10px;
 
-    background:transparent;
+    position:absolute;
 
-    color:#d4af37;
+    top:8px;
 
-    border:1px solid #d4af37;
+    left:50%;
 
-    border-radius:50px;
+    transform:translateX(-50%);
 
-    font-size:16px;
+    animation:
 
-    transition:.4s;
-
-}
-
-
-#btnBuka:hover{
-
-    background:#d4af37;
-
-    color:#000;
+    wheelMove 1.5s infinite;
 
 }
 
 
 
-/* ================= SECTION ================= */
+@keyframes wheelMove{
+
+    from{
+
+        opacity:1;
+
+        transform:
+
+        translate(-50%,0);
+
+    }
+
+
+    to{
+
+        opacity:0;
+
+        transform:
+
+        translate(-50%,15px);
+
+    }
+
+}/* =========================================
+   GLOBAL CONTAINER
+========================================= */
+
+
+.container{
+
+    width:90%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+
+
+/* =========================================
+   SECTION BASIC
+========================================= */
 
 
 section{
 
-    padding:80px 20px;
+    position:relative;
+
+    padding:100px 0;
+
+    overflow:hidden;
 
 }
 
 
 
-section h2{
+.section-subtitle{
+
+    display:block;
 
     text-align:center;
 
-    font-family:'Cormorant Garamond',serif;
+    color:var(--gold);
 
-    font-size:45px;
+    font-size:14px;
 
-    color:#d4af37;
+    letter-spacing:4px;
 
-    margin-bottom:40px;
+    text-transform:uppercase;
+
+    margin-bottom:15px;
 
 }
 
 
 
-/* ================= MEMPELAI ================= */
+.section-title{
+
+    text-align:center;
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:55px;
+
+    color:white;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.section-description{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:0 auto 50px;
+
+    color:#ccc;
+
+    line-height:2;
+
+}
+
+
+
+/* =========================================
+   GOLD DIVIDER
+========================================= */
+
+
+.gold-divider{
+
+    width:100px;
+
+    height:2px;
+
+    background:var(--gold);
+
+    margin:25px auto 40px;
+
+    position:relative;
+
+}
+
+
+
+.gold-divider::before,
+
+.gold-divider::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:10px;
+
+    height:10px;
+
+    background:var(--gold);
+
+    border-radius:50%;
+
+    transform:translateY(-50%);
+
+}
+
+
+.gold-divider::before{
+
+    left:-20px;
+
+}
+
+
+.gold-divider::after{
+
+    right:-20px;
+
+}
+
+
+
+/* =========================================
+   OPENING SECTION
+========================================= */
+
+
+.opening{
+
+    background:#0b0b0b;
+
+}
+
+
+
+.opening h2{
+
+    text-align:center;
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:45px;
+
+    color:var(--gold-light);
+
+}
+
+
+
+.opening p{
+
+    max-width:650px;
+
+    margin:30px auto;
+
+    text-align:center;
+
+    line-height:2;
+
+    color:#ddd;
+
+}
+
+
+
+/* =========================================
+   COUPLE SECTION
+========================================= */
 
 
 .couple{
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    #0b0b0b,
+
+    #111
+
+    );
+
+}
+
+
+
+.couple-wrapper{
 
     display:flex;
 
@@ -259,7 +1062,7 @@ section h2{
 
     align-items:center;
 
-    gap:40px;
+    gap:50px;
 
     flex-wrap:wrap;
 
@@ -267,153 +1070,605 @@ section h2{
 
 
 
-.card{
+.couple-card{
 
-    background:
-
-    rgba(255,255,255,.05);
-
-    backdrop-filter:blur(10px);
-
-    border:1px solid rgba(212,175,55,.4);
-
-    padding:25px;
+    width:300px;
 
     text-align:center;
 
-    border-radius:20px;
+    padding:35px 25px;
+
+    background:
+
+    rgba(255,255,255,.03);
+
+    border:
+
+    1px solid rgba(212,175,55,.25);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(10px);
+
+    transition:.5s;
 
 }
 
 
 
-.card img{
+.couple-card:hover{
 
-    width:220px;
+    transform:translateY(-15px);
 
-    height:220px;
+    border-color:var(--gold);
+
+}
+
+
+
+.couple-image{
+
+    width:190px;
+
+    height:190px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:
+
+    3px solid var(--gold);
+
+    padding:6px;
+
+}
+
+
+
+.couple-image img{
+
+    width:100%;
+
+    height:100%;
 
     object-fit:cover;
 
     border-radius:50%;
 
-    border:3px solid #d4af37;
+}
+
+
+
+.couple-card h3{
+
+    margin-top:25px;
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:38px;
+
+    color:var(--gold-light);
 
 }
 
 
 
-.card h3{
+.couple-card span{
+
+    color:#aaa;
+
+    font-size:14px;
+
+}
+
+
+
+.couple-card p{
 
     margin-top:20px;
 
-    font-size:30px;
+    line-height:2;
 
-    color:#f5d77b;
-
-}
-
-
-
-.love{
-
-    font-size:50px;
-
-    color:#d4af37;
+    color:#ddd;
 
 }
 
 
 
-/* ================= CARD UMUM ================= */
+.love-circle{
 
+    width:60px;
 
-.event-card,
-.box,
-.rekening{
+    height:60px;
 
-    max-width:500px;
+    border-radius:50%;
 
-    margin:20px auto;
+    background:var(--gold);
 
-    padding:30px;
-
-    background:
-
-    rgba(255,255,255,.04);
-
-    border:1px solid rgba(212,175,55,.3);
-
-    border-radius:20px;
-
-    text-align:center;
-
-}
-
-
-
-.event-card h3,
-.box h3{
-
-    color:#d4af37;
-
-}
-
-
-
-/* ================= TIMER ================= */
-
-
-.timer{
+    color:#111;
 
     display:flex;
 
     justify-content:center;
 
-    gap:20px;
+    align-items:center;
 
-    flex-wrap:wrap;
+    font-family:
 
-}
-
-
-
-.box-time{
-
-    width:100px;
-
-    padding:20px;
-
-    background:#111;
-
-    border:1px solid #d4af37;
-
-    border-radius:15px;
-
-    text-align:center;
-
-}
-
-
-
-.box-time span{
+    'Cormorant Garamond',
+    serif;
 
     font-size:35px;
 
-    color:#f5d77b;
+}/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown{
+
+    background:#111;
+
+}
+
+
+.countdown-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    max-width:800px;
+
+    margin:auto;
 
 }
 
 
 
-/* ================= GALLERY ================= */
+.count-card{
+
+    text-align:center;
+
+    padding:30px 15px;
+
+    background:
+
+    rgba(255,255,255,.04);
+
+    border:
+
+    1px solid rgba(212,175,55,.3);
+
+    border-radius:20px;
+
+}
+
+
+
+.count-card h3{
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:55px;
+
+    color:var(--gold);
+
+}
+
+
+
+.count-card span{
+
+    color:#ddd;
+
+}
+
+
+
+/* =========================================
+   SAVE DATE
+========================================= */
+
+
+.save-date{
+
+    background:#0b0b0b;
+
+}
+
+
+
+.calendar-card{
+
+    width:260px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:40px;
+
+    border:
+
+    1px solid rgba(212,175,55,.5);
+
+    border-radius:25px;
+
+    background:
+
+    rgba(255,255,255,.03);
+
+}
+
+
+
+.calendar-card .month{
+
+    letter-spacing:5px;
+
+    color:var(--gold);
+
+}
+
+
+
+.calendar-card h2{
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:100px;
+
+    color:white;
+
+    line-height:1;
+
+    margin:20px 0;
+
+}
+
+
+
+.calendar-card span{
+
+    color:#ddd;
+
+}
+
+
+
+.calendar-card p{
+
+    margin-top:15px;
+
+    color:var(--gold);
+
+}
+
+
+
+/* =========================================
+   EVENT
+========================================= */
+
+
+.event{
+
+    background:#111;
+
+}
+
+
+
+.event-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.event-card{
+
+    text-align:center;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    border:
+
+    1px solid rgba(212,175,55,.25);
+
+    background:
+
+    rgba(255,255,255,.03);
+
+}
+
+
+
+.event-icon{
+
+    font-size:45px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.event-card h3{
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:35px;
+
+    color:var(--gold-light);
+
+}
+
+
+
+.event-card p{
+
+    margin:20px 0;
+
+    line-height:2;
+
+    color:#ddd;
+
+}
+
+
+
+.event-card strong{
+
+    color:var(--gold);
+
+}
+
+
+
+/* =========================================
+   LOCATION
+========================================= */
+
+
+.location{
+
+    background:#0b0b0b;
+
+}
+
+
+
+.location-card{
+
+    max-width:600px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    border:
+
+    1px solid rgba(212,175,55,.3);
+
+}
+
+
+
+.location-card h3{
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:35px;
+
+    color:var(--gold-light);
+
+}
+
+
+
+.location-card p{
+
+    line-height:2;
+
+    color:#ddd;
+
+    margin:25px 0;
+
+}
+
+
+
+.btn-map{
+
+    display:inline-block;
+
+    padding:14px 35px;
+
+    border-radius:50px;
+
+    background:var(--gold);
+
+    color:#111;
+
+    text-decoration:none;
+
+}
+
+
+
+/* =========================================
+   LOVE STORY TIMELINE
+========================================= */
+
+
+.story{
+
+    background:#111;
+
+}
+
+
+
+.timeline{
+
+    max-width:800px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:2px;
+
+    height:100%;
+
+    background:var(--gold);
+
+}
+
+
+
+.timeline-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.timeline-year{
+
+    width:100px;
+
+    height:100px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    color:#111;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:30px;
+
+    z-index:2;
+
+}
+
+
+
+.timeline-content{
+
+    width:45%;
+
+    padding:25px;
+
+    border:
+
+    1px solid rgba(212,175,55,.25);
+
+    border-radius:20px;
+
+}
+
+
+
+.timeline-content h3{
+
+    color:var(--gold-light);
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:30px;
+
+}
+
+
+.timeline-content p{
+
+    color:#ddd;
+
+    line-height:1.8;
+
+}/* =========================================
+   GALLERY
+========================================= */
+
+.gallery{
+
+    background:#0b0b0b;
+
+}
+
 
 
 .gallery-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(3,1fr);
 
     gap:20px;
 
@@ -429,36 +1684,338 @@ section h2{
 
     object-fit:cover;
 
-    border-radius:15px;
+    border-radius:20px;
 
-    border:1px solid #d4af37;
+    border:
+
+    1px solid rgba(212,175,55,.25);
+
+    transition:.5s;
 
 }
 
 
 
-/* ================= LINK ================= */
+.gallery-grid img:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+
+    0 0 30px rgba(212,175,55,.3);
+
+}
 
 
-a{
 
-    color:#d4af37;
+/* =========================================
+   RSVP
+========================================= */
+
+
+.rsvp{
+
+    background:#111;
+
+    text-align:center;
+
+}
+
+
+
+.rsvp p{
+
+    max-width:650px;
+
+    margin:30px auto;
+
+    line-height:2;
+
+    color:#ddd;
+
+}
+
+
+
+.btn-wa{
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    background:#25D366;
+
+    color:white;
 
     text-decoration:none;
 
+    transition:.4s;
+
 }
 
 
 
-/* ================= FLOAT BUTTON ================= */
+.btn-wa:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* =========================================
+   WISHES
+========================================= */
+
+
+.wishes{
+
+    background:#0b0b0b;
+
+}
+
+
+
+.wish-form{
+
+    max-width:600px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.wish-form input,
+
+.wish-form textarea{
+
+    padding:15px;
+
+    border-radius:15px;
+
+    border:
+
+    1px solid rgba(212,175,55,.3);
+
+    background:#111;
+
+    color:white;
+
+}
+
+
+
+.wish-form textarea{
+
+    height:150px;
+
+    resize:none;
+
+}
+
+
+
+.wish-form button{
+
+    padding:15px;
+
+    border-radius:50px;
+
+    border:none;
+
+    background:var(--gold);
+
+    cursor:pointer;
+
+}
+
+
+
+/* =========================================
+   GIFT
+========================================= */
+
+
+.gift{
+
+    background:#111;
+
+    text-align:center;
+
+}
+
+
+
+.gift p{
+
+    max-width:650px;
+
+    margin:25px auto;
+
+    color:#ddd;
+
+}
+
+
+
+.rekening-card{
+
+    max-width:400px;
+
+    margin:25px auto;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    border:
+
+    1px solid rgba(212,175,55,.3);
+
+}
+
+
+
+.rekening-card h3{
+
+    color:var(--gold);
+
+}
+
+
+
+.rekening-card h4{
+
+    font-size:30px;
+
+    margin:15px 0;
+
+}
+
+
+
+.copy-btn{
+
+    padding:12px 30px;
+
+    border-radius:50px;
+
+    border:none;
+
+    background:var(--gold);
+
+    cursor:pointer;
+
+}
+
+
+
+/* =========================================
+   PRAYER
+========================================= */
+
+
+.prayer{
+
+    text-align:center;
+
+    background:#0b0b0b;
+
+}
+
+
+
+.prayer h2{
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:45px;
+
+}
+
+
+
+.prayer .arab{
+
+    font-size:30px;
+
+    color:var(--gold-light);
+
+    margin:30px 0;
+
+}
+
+
+
+/* =========================================
+   THANKS
+========================================= */
+
+
+.thanks{
+
+    text-align:center;
+
+    background:#111;
+
+}
+
+
+
+.thanks h2{
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:60px;
+
+    color:var(--gold);
+
+}
+
+
+
+.thanks h3{
+
+    margin-top:30px;
+
+    font-family:
+
+    'Cormorant Garamond',
+    serif;
+
+    font-size:45px;
+
+}
+
+
+
+/* =========================================
+   FLOAT BUTTON
+========================================= */
 
 
 #musicBtn,
+
 #backToTop{
 
     position:fixed;
 
-    right:20px;
+    right:25px;
 
     width:50px;
 
@@ -466,15 +2023,18 @@ a{
 
     border-radius:50%;
 
-    background:#111;
+    border:none;
 
-    color:#d4af37;
+    background:var(--gold);
 
-    border:1px solid #d4af37;
+    color:#111;
 
-    z-index:1000;
+    cursor:pointer;
+
+    z-index:999;
 
 }
+
 
 
 #musicBtn{
@@ -482,6 +2042,7 @@ a{
     bottom:90px;
 
 }
+
 
 
 #backToTop{
@@ -492,39 +2053,278 @@ a{
 
 
 
-/* ================= MOBILE ================= */
+/* =========================================
+   FOOTER
+========================================= */
 
 
-@media(max-width:600px){
+footer{
 
+    text-align:center;
 
-.hero h1{
+    padding:30px;
 
-    font-size:60px;
+    background:#050505;
 
-}
-
-
-.hero h1 span{
-
-    font-size:40px;
+    color:#aaa;
 
 }
 
 
-section h2{
 
-    font-size:35px;
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width:768px){
+
+    .hero{
+        background-attachment:scroll;
+    }
+
+    .hero-title{
+        font-size:50px;
+        line-height:1.1;
+    }
+
+    .hero-date{
+        gap:10px;
+    }
+
+    .hero-date h2{
+        font-size:60px;
+    }
+
+    .hero-logo{
+        width:120px;
+    }
+
+    .section-title{
+        font-size:42px;
+    }
+
+    .countdown-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .event-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .couple-wrapper{
+        gap:30px;
+    }
+
+    .timeline::before{
+        left:40px;
+    }
+
+    .timeline-item{
+        flex-direction:column;
+        gap:20px;
+        padding-left:90px;
+        position:relative;
+    }
+
+    .timeline-year{
+        position:absolute;
+        left:0;
+        width:80px;
+        height:80px;
+        font-size:25px;
+    }
+
+    .timeline-content{
+        width:100%;
+    }
+
+    .ornament-top,
+    .ornament-bottom{
+        width:180px;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .hero-title{
+        font-size:38px;
+        line-height:1.2;
+    }
+
+    .bismillah{
+        font-size:22px;
+    }
+
+    .hero-subtitle{
+        font-size:12px;
+        letter-spacing:3px;
+    }
+
+    .hero-date{
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .hero-date h2{
+        font-size:52px;
+    }
+
+    .guest-card{
+        width:100%;
+        padding:15px 20px;
+    }
+
+    .btn-open{
+        width:100%;
+        padding:15px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
 
 }
 
 
-.card img{
+/* =========================================
+   ACEH MARK BACKGROUND
+========================================= */
 
-    width:180px;
+.aceh-mark{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
 
-    height:180px;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.25),
+            rgba(0,0,0,.45)
+        ),
+        url("assets/img/hero/pintu-aceh-pattern.png");
 
+    background-size:700px;
+    background-repeat:repeat;
+    background-position:center;
+
+    opacity:.12;
 }
 
+
+/* =========================================
+   QUOTE
+========================================= */
+
+.quote{
+    background:#111;
+    text-align:center;
+}
+
+.quote h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:45px;
+    color:var(--gold-light);
+}
+
+.quote .translate{
+    max-width:700px;
+    margin:30px auto 0;
+    color:#ddd;
+    line-height:2;
+}
+
+/* =========================================
+   ARABIC TEXT
+========================================= */
+
+.arab{
+    font-size:30px;
+    line-height:2;
+    color:var(--gold-light);
+    margin:30px auto;
+    text-align:center;
+}
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider{
+    width:100px;
+    height:2px;
+    background:var(--gold);
+    margin:25px auto 40px;
+    position:relative;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:var(--gold);
+    transform:translateY(-50%);
+}
+
+.divider::before{
+    left:-20px;
+}
+
+.divider::after{
+    right:-20px;
+}
+
+
+/* =========================================
+   WISH LIST
+========================================= */
+
+.wish-list{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.lightbox.active{
+    display:flex;
+}
+
+#lightboxImage{
+    max-width:90%;
+    max-height:85vh;
+    border-radius:20px;
+    border:2px solid var(--gold);
+}
+
+.close-lightbox{
+    position:absolute;
+    top:25px;
+    right:35px;
+    color:#fff;
+    font-size:45px;
+    cursor:pointer;
 }
