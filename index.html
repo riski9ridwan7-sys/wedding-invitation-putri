@@ -48,6 +48,14 @@
 
 <body>
 
+<div class="door-animation" id="doorAnimation">
+
+    <div class="door left-door"></div>
+
+    <div class="door right-door"></div>
+
+    </div>
+
 
     <!-- ========================================= -->
     <!-- LOADING -->
@@ -73,27 +81,9 @@
      <!-- HERO -->
      <!-- ========================================= -->
 
- <header class="hero" id="hero">
-
-     
-     <div class="hero-overlay"></div>
-
-     <div class="sparkle"></div>
-
-     <div class="gold-dust"></div>
-
-     <div class="soft-glow"></div>
-
-     <img src="assets/img/ornament-top.png"
-     alt=""
-     class="ornament-top">
-
-      <img src="assets/img/ornament-bottom.png"
-     alt=""
-     class="ornament-bottom">
+    <header class="hero" id="hero">
 
      <div class="hero-content">
-
 
         <!-- Bismillah -->
 
@@ -154,49 +144,37 @@
 
         <!-- Button -->
 
-         <button id="openInvitation" class="btn-open">
-            Buka Undangan
-         </button>
+     <button id="openInvitation" class="btn-open">
+    Buka Undangan
+<button id="musicBtn" class="music-btn">
+    🎵
+</button>
 
+     </div>
 
-        <!-- Scroll -->
-
-        <div class="scroll-down">
-
-            <span>Scroll</span>
-
-            <div class="mouse">
-
-                <div class="wheel"></div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</header>
-
+    </header>
 
     <!-- ========================================= -->
     <!-- MAIN -->
     <!-- ========================================= -->
 
-    <main id="content">
+<!-- Buka index.html, pastikan elemen main seperti ini: -->
+<main id="content" class="hidden-content">
+
 
         <!-- ===================================== -->
         <!-- OPENING -->
         <!-- ===================================== -->
 
-<section class="opening">
 
-    <div class="container">
+    <section class="opening">
+        <div class="container">
 
-        <span class="section-subtitle">
+         <span class="section-subtitle">
 
             Assalamu'alaikum
 
-        </span>
+         </span>
 
         <h2>
 
@@ -364,7 +342,7 @@
 
                     <br>
 
-                    <strong>Bapak Alm. armansyah </strong>
+                    <strong>Bapak Alm. Armansyah </strong>
 
                     <br>
 
@@ -372,7 +350,7 @@
 
                     <br>
 
-                    <strong>Ibu Aisyah M.p.d </strong>
+                    <strong>Ibu Aisyah M, pd </strong>
 
                 </p>
 
@@ -983,4 +961,10 @@
     <script src="script.js"></script>
 
 </body>
+
+<audio id="bgMusic" loop>
+    <source src="assets/music/Ari Lasso - Cinta Terakhir _ Official 4K Remastered Video.mp3" type="audio/mp3">
+</audio>
+
+
 </html>

@@ -243,73 +243,7 @@ body{
 
     }
 
-}/* =========================================
-   ORNAMENT ACEH
-========================================= */
-
-.ornament-top,
-.ornament-bottom{
-
-    position:absolute;
-
-    width:280px;
-
-    opacity:.65;
-
-    z-index:2;
-
-    pointer-events:none;
-
 }
-
-
-.ornament-top{
-
-    top:20px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    animation:ornamentFade 2s ease;
-
-}
-
-
-.ornament-bottom{
-
-    bottom:20px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    animation:ornamentFade 2.5s ease;
-
-}
-
-
-@keyframes ornamentFade{
-
-    from{
-
-        opacity:0;
-
-        transform:translateX(-50%) translateY(-30px);
-
-    }
-
-
-    to{
-
-        opacity:.65;
-
-        transform:translateX(-50%) translateY(0);
-
-    }
-
-}
-
 
 
 /* =========================================
@@ -2291,4 +2225,219 @@ footer{
     color:#fff;
     font-size:45px;
     cursor:pointer;
+}
+
+/* =========================================
+   PERPINTAHAN HALAMAN TANPA SCROLL
+========================================= */
+.hidden-content {
+    display: none;
+}
+
+.hero.hide-hero {
+    display: none !important;
+}
+
+/* =========================================
+   OPEN INVITATION ANIMATION
+========================================= */
+
+
+.hero.opening-close{
+
+    animation: heroZoomOut 1.5s ease forwards;
+
+}
+
+
+
+@keyframes heroZoomOut{
+
+
+    0%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+        filter:brightness(1);
+
+    }
+
+
+    50%{
+
+        filter:
+        brightness(1.5);
+
+    }
+
+
+    100%{
+
+        opacity:0;
+
+        transform:scale(1.15);
+
+        filter:brightness(0);
+
+        visibility:hidden;
+
+    }
+
+}
+
+
+
+
+/* =========================================
+   SMOOTH OPEN INVITATION LUXURY
+========================================= */
+
+
+/* HERO KELUAR */
+
+.hero.opening-close{
+
+    animation:
+    cinematicOut 2s ease forwards;
+
+    pointer-events:none;
+
+}
+
+
+
+@keyframes cinematicOut{
+
+
+    0%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+        filter:blur(0);
+
+    }
+
+
+    60%{
+
+        opacity:.8;
+
+        transform:scale(.96);
+
+        filter:blur(2px);
+
+    }
+
+
+    100%{
+
+        opacity:0;
+
+        transform:scale(.90);
+
+        filter:blur(8px);
+
+        visibility:hidden;
+
+    }
+
+}
+
+
+
+
+/* CONTENT MUNCUL */
+
+.hidden-content.content-show{
+
+    display:block;
+
+    animation:
+    revealContent 2s ease forwards;
+
+}
+
+
+
+@keyframes revealContent{
+
+
+    0%{
+
+        opacity:0;
+
+        transform:translateY(100px);
+
+    }
+
+
+
+    40%{
+
+        opacity:.4;
+
+    }
+
+
+
+    100%{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* BIKIN TRANSISI HALUS */
+
+#content{
+
+    opacity:0;
+
+}
+
+
+
+#content.content-show{
+
+    opacity:1;
+
+}
+
+.music-btn{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:50px;
+
+height:50px;
+
+border-radius:50%;
+
+background:#d4af37;
+
+color:#0b0b0b;
+
+border:none;
+
+font-size:22px;
+
+cursor:pointer;
+
+z-index:9999;
+
+box-shadow:0 0 20px rgba(212,175,55,.5);
+
 }
