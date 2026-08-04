@@ -172,11 +172,10 @@ if(hero){
 // =========================================
 
 let isPlaying = false;
-let isMuted = false;
 
 
+// PLAY MUSIC
 function playMusic(){
-
 
     if(!music) return;
 
@@ -185,49 +184,74 @@ function playMusic(){
 
     .then(()=>{
 
-
-        isPlaying=true;
-
+        isPlaying = true;
 
 
-isMuted = false;
-        music.muted = false;
+        if(musicBtn){
 
-        if (musicBtn) {
-            musicBtn.innerHTML = "🔊";
+            musicBtn.innerHTML = "⏸️";
+
         }
+
 
     })
 
-    .catch(() => {
+    .catch((error)=>{
 
-        console.log("Music blocked");
+        console.log("Music blocked", error);
 
     });
 
 }
 
 
-if (musicBtn) {
 
-    musicBtn.addEventListener("click", () => {
+// PAUSE MUSIC
+function pauseMusic(){
 
-        if (!isPlaying) {
+    if(!music) return;
+
+
+    music.pause();
+
+
+    isPlaying = false;
+
+
+    if(musicBtn){
+
+        musicBtn.innerHTML = "🎵";
+
+    }
+
+}
+
+
+
+// BUTTON MUSIC PLAY / PAUSE
+
+if(musicBtn){
+
+    musicBtn.addEventListener("click",()=>{
+
+
+        if(isPlaying){
+
+            pauseMusic();
+
+
+        }else{
+
+
             playMusic();
-            return;
+
+
         }
 
-        isMuted = !isMuted;
-
-        music.muted = isMuted;
-
-        musicBtn.innerHTML = isMuted ? "🔇" : "🔊";
 
     });
 
 }
-
-
 
 // =========================================
 // PART 5 - GUEST NAME
