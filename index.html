@@ -48,14 +48,6 @@
 
 <body>
 
-<div class="door-animation" id="doorAnimation">
-
-    <div class="door left-door"></div>
-
-    <div class="door right-door"></div>
-
-    </div>
-
 
     <!-- ========================================= -->
     <!-- LOADING -->
@@ -73,8 +65,8 @@
     <!-- AUDIO -->
     <!-- ========================================= -->
 
-    <audio id="musik" loop>
-        <source src="assets/music/wedding.mp3" type="audio/mpeg">
+    <audio id="bgMusic" loop>
+        <source src="assets/music/RAJA SIUROE - LIZA RAHMI.mp3" type="audio/mpeg">
     </audio>
 
      <!-- ========================================= -->
@@ -144,8 +136,10 @@
 
         <!-- Button -->
 
-     <button id="openInvitation" class="btn-open">
+<button id="openInvitation" class="btn-open">
     Buka Undangan
+</button>
+
 <button id="musicBtn" class="music-btn">
     🎵
 </button>
@@ -153,6 +147,11 @@
      </div>
 
     </header>
+
+    <!-- Tombol Musik -->
+<button id="musicBtn" class="music-btn">
+    🎵
+</button>
 
     <!-- ========================================= -->
     <!-- MAIN -->
@@ -922,49 +921,27 @@
 
     </main>
 
-    <!-- Floating Music -->
+    <!-- ========================================= -->
+<!-- LIGHTBOX -->
+<!-- ========================================= -->
 
-    <button id="musicBtn" type="button">
-        🎵
-    </button>
+<div id="lightbox" class="lightbox">
 
-    <!-- Back To Top -->
+    <span class="close-lightbox">&times;</span>
 
-    <button id="backToTop" type="button">
-        ↑
-    </button>
+    <img id="lightboxImage" src="" alt="Gallery">
 
-    <!-- Lightbox -->
+</div>
 
-    <div class="lightbox" id="lightbox">
+<!-- ========================================= -->
+<!-- BACK TO TOP -->
+<!-- ========================================= -->
 
-        <span class="close-lightbox">&times;</span>
-
-        <img src="" alt="Preview Galeri" id="lightboxImage">
-
-    </div>
-
-    <!-- Footer -->
-
-    <footer>
-
-        <p>
-            © 2026 Putri & Rizki
-        </p>
-
-        <p>
-            Made with ❤️
-        </p>
-
-    </footer>
-
-    <script src="script.js"></script>
-
-</body>
-
-<audio id="bgMusic" loop>
-    <source src="assets/music/Ari Lasso - Cinta Terakhir _ Official 4K Remastered Video.mp3" type="audio/mp3">
-</audio>
+<button id="backToTop" title="Kembali ke atas">
+    ↑
+</button>
 
 
-</html>
+     <script src="script.js"></script>
+    </body>
+    </html>

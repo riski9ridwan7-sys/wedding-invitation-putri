@@ -22,7 +22,7 @@ const hero = document.getElementById("hero");
 
 const content = document.getElementById("content");
 
-const music = document.getElementById("musik");
+const music = document.getElementById("bgMusic");
 
 const musicBtn = document.getElementById("musicBtn");
 
@@ -154,7 +154,6 @@ if(hero){
 
 
 
-        playMusic();
 
 
 
@@ -172,9 +171,8 @@ if(hero){
 // PART 4 - MUSIC
 // =========================================
 
-
-let isPlaying=false;
-
+let isPlaying = false;
+let isMuted = false;
 
 
 function playMusic(){
@@ -192,81 +190,42 @@ function playMusic(){
 
 
 
-        if(musicBtn){
+isMuted = false;
+        music.muted = false;
 
-            musicBtn.innerHTML="⏸️";
-
+        if (musicBtn) {
+            musicBtn.innerHTML = "🔊";
         }
-
-
 
     })
 
-    .catch(()=>{
+    .catch(() => {
 
-
-        console.log(
-        "Music blocked"
-        );
-
+        console.log("Music blocked");
 
     });
 
-
 }
 
 
+if (musicBtn) {
 
+    musicBtn.addEventListener("click", () => {
 
-function pauseMusic(){
-
-
-    if(!music) return;
-
-
-    music.pause();
-
-
-    isPlaying=false;
-
-
-
-    if(musicBtn){
-
-        musicBtn.innerHTML="🎵";
-
-    }
-
-
-}
-
-
-
-
-
-if(musicBtn){
-
-
-    musicBtn.addEventListener("click",()=>{
-
-
-        if(isPlaying){
-
-            pauseMusic();
-
-        }else{
-
+        if (!isPlaying) {
             playMusic();
-
+            return;
         }
 
+        isMuted = !isMuted;
+
+        music.muted = isMuted;
+
+        musicBtn.innerHTML = isMuted ? "🔇" : "🔊";
 
     });
 
-
 }
-
-
 
 
 
@@ -577,7 +536,6 @@ console.log(
 
 
 
-});
 
 // =========================================
 // PART 9 - GALLERY LIGHTBOX
@@ -788,60 +746,8 @@ if(wishForm && wishList){
         wishForm.reset();
 
 
-
     });
 
-
 }
-
-
-// ===============================
-// MUSIC
-// ===============================
-
-const music = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-
-let isPlaying = false;
-
-
-function playMusic(){
-
-    music.play()
-    .then(()=>{
-
-        isPlaying = true;
-
-        musicBtn.innerHTML = "⏸️";
-
-    })
-    .catch(()=>{});
-
-}
-
-
-function pauseMusic(){
-
-    music.pause();
-
-    isPlaying = false;
-
-    musicBtn.innerHTML = "🎵";
-
-}
-
-
-
-musicBtn.addEventListener("click",()=>{
-
-    if(isPlaying){
-
-        pauseMusic();
-
-    }else{
-
-        playMusic();
-
-    }
 
 });

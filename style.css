@@ -246,50 +246,6 @@ body{
 }
 
 
-/* =========================================
-   PINTU ACEH LOGO
-========================================= */
-
-
-.hero-logo{
-
-    width:150px;
-
-    max-width:40vw;
-
-    margin-bottom:25px;
-
-    filter:
-
-    drop-shadow(0 0 15px rgba(212,175,55,.5));
-
-    animation:
-
-    logoFloat 5s ease-in-out infinite;
-
-}
-
-
-
-@keyframes logoFloat{
-
-    0%,
-    100%{
-
-        transform:translateY(0);
-
-    }
-
-
-    50%{
-
-        transform:translateY(-10px);
-
-    }
-
-}
-
-
 
 /* =========================================
    BISMILLAH
@@ -1932,7 +1888,6 @@ section{
 ========================================= */
 
 
-#musicBtn,
 
 #backToTop{
 
@@ -2018,10 +1973,6 @@ footer{
         font-size:60px;
     }
 
-    .hero-logo{
-        width:120px;
-    }
-
     .section-title{
         font-size:42px;
     }
@@ -2065,10 +2016,6 @@ footer{
         width:100%;
     }
 
-    .ornament-top,
-    .ornament-bottom{
-        width:180px;
-    }
 
 }
 
@@ -2237,56 +2184,6 @@ footer{
 .hero.hide-hero {
     display: none !important;
 }
-
-/* =========================================
-   OPEN INVITATION ANIMATION
-========================================= */
-
-
-.hero.opening-close{
-
-    animation: heroZoomOut 1.5s ease forwards;
-
-}
-
-
-
-@keyframes heroZoomOut{
-
-
-    0%{
-
-        opacity:1;
-
-        transform:scale(1);
-
-        filter:brightness(1);
-
-    }
-
-
-    50%{
-
-        filter:
-        brightness(1.5);
-
-    }
-
-
-    100%{
-
-        opacity:0;
-
-        transform:scale(1.15);
-
-        filter:brightness(0);
-
-        visibility:hidden;
-
-    }
-
-}
-
 
 
 
