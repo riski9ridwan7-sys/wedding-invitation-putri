@@ -2427,3 +2427,277 @@ box-shadow:0 0 20px rgba(212,175,55,.5);
     }
 
 }
+
+/* =========================================
+   WISH FORM PREMIUM
+========================================= */
+
+.wish-form{
+    max-width:700px;
+    margin:40px auto 0;
+    padding:35px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:24px;
+    backdrop-filter:blur(12px);
+}
+
+.form-group{
+    margin-bottom:28px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:12px;
+    color:var(--gold);
+    font-weight:600;
+    font-size:16px;
+}
+
+.wish-form input,
+.wish-form textarea{
+    width:100%;
+    padding:16px 18px;
+    border-radius:14px;
+    border:1px solid rgba(212,175,55,.25);
+    background:#161616;
+    color:#fff;
+    font-size:15px;
+    transition:.3s;
+}
+
+.wish-form input:focus,
+.wish-form textarea:focus{
+    outline:none;
+    border-color:var(--gold);
+    box-shadow:0 0 18px rgba(212,175,55,.25);
+}
+
+/* =========================================
+   RADIO RSVP
+========================================= */
+
+.attendance-group{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.radio-card{
+    flex:1;
+    cursor:pointer;
+}
+
+.radio-card input{
+    display:none;
+}
+
+.radio-card span{
+    display:block;
+    text-align:center;
+    padding:16px;
+    border-radius:15px;
+    border:1px solid rgba(212,175,55,.25);
+    background:#161616;
+    transition:.3s;
+}
+
+.radio-card input:checked + span{
+    background:rgba(212,175,55,.15);
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+/* =========================================
+   GUEST COUNTER
+========================================= */
+
+.guest-counter{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+}
+
+.guest-counter button{
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#d4af37,#b89018);
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.guest-counter button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 18px rgba(212,175,55,.45);
+}
+
+.guest-value{
+    text-align:center;
+}
+
+.guest-value span{
+    display:block;
+    font-size:34px;
+    font-weight:bold;
+    color:var(--gold);
+}
+
+.guest-value small{
+    color:#bbb;
+}
+
+/* =========================================
+   BUTTON SEND
+========================================= */
+
+.btn-send{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#d4af37,#b89018);
+    color:#111;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-send:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(212,175,55,.45);
+}
+
+/* =========================================
+   SUCCESS POPUP
+========================================= */
+
+.success-popup{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    z-index:9999;
+
+}
+
+.success-popup.show{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+.popup-card{
+
+    width:90%;
+    max-width:430px;
+
+    background:#161616;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+
+    animation:popupScale .35s ease;
+
+}
+
+.popup-icon{
+
+    font-size:55px;
+    margin-bottom:15px;
+
+}
+
+.popup-card h2{
+
+    color:var(--gold);
+
+    margin-bottom:10px;
+
+    font-size:34px;
+
+}
+
+.popup-card p{
+
+    color:#ddd;
+
+    line-height:1.8;
+
+}
+
+.popup-card button{
+
+    margin-top:25px;
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#d4af37,#b89018);
+
+    color:#111;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.popup-card button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 20px rgba(212,175,55,.45);
+
+}
+
+@keyframes popupScale{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}

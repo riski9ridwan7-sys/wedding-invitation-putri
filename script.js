@@ -174,31 +174,25 @@ if(hero){
 let isPlaying = false;
 
 
-// PLAY MUSIC
+// PLAY MUSIC //
+
 function playMusic(){
 
     if(!music) return;
 
-
     music.play()
-
     .then(()=>{
 
         isPlaying = true;
 
-
         if(musicBtn){
-
             musicBtn.innerHTML = "⏸️";
-
         }
 
-
     })
+    .catch(err=>{
 
-    .catch((error)=>{
-
-        console.log("Music blocked", error);
+        console.error("Audio gagal diputar:", err);
 
     });
 
@@ -692,83 +686,164 @@ document.addEventListener(
 // PART 10 - WISH FORM
 // =========================================
 
+const wishForm = document.querySelector(".wish-form");
 
-const wishForm =
-document.querySelector(".wish-form");
+const popup = document.getElementById("successPopup");
+const closePopup = document.getElementById("closePopup");
 
+// Counter Jumlah Tamu
+const minusGuest = document.getElementById("minusGuest");
+const plusGuest = document.getElementById("plusGuest");
+const guestCount = document.getElementById("guestCount");
+const jumlahInput = document.getElementById("jumlah");
 
-const wishList =
-document.querySelector(".wish-list");
+let totalGuest = 1;
 
+// =========================================
+// COUNTER TAMU
+// =========================================
 
+if (minusGuest && plusGuest && guestCount && jumlahInput) {
 
-if(wishForm && wishList){
+    minusGuest.addEventListener("click", () => {
 
+        if (totalGuest > 1) {
 
-    wishForm.addEventListener(
-    "submit",
-    (e)=>{
+            totalGuest--;
 
-
-        e.preventDefault();
-
-
-
-        const name =
-        wishForm.querySelector("input")
-        .value.trim();
-
-
-
-        const message =
-        wishForm.querySelector("textarea")
-        .value.trim();
-
-
-
-
-        if(!name || !message){
-
-
-            alert(
-            "Silakan isi nama dan ucapan."
-            );
-
-
-            return;
-
+            guestCount.textContent = totalGuest;
+            jumlahInput.value = totalGuest;
 
         }
 
+    });
 
+    plusGuest.addEventListener("click", () => {
 
+        totalGuest++;
 
-        const card =
-        document.createElement("div");
+        guestCount.textContent = totalGuest;
+        jumlahInput.value = totalGuest;
 
+    });
 
+}
 
-        card.className =
-        "wish-card";
+// =========================================
+// POPUP
+// =========================================
 
+if (closePopup && popup) {
 
+    closePopup.addEventListener("click", () => {
 
-        card.innerHTML = `
+        popup.classList.remove("show");
 
-            <h3>${name}</h3>
+    });
 
-            <p>${message}</p>
+}
 
-        `;
+// =========================================
+// SUBMIT RSVP
+// =========================================
 
+if (wishForm) {
 
+    const WEB_APP_URL =
+        "https://script.google.com/macros/s/AKfycbz6KsGvltrIcJ2KgDQXj21D1-pQMHUmUsrTO4BzJkXK717H5owRs_5DWqymi6t1Vm6kQA/exec";
 
-        wishList.prepend(card);
+    wishForm.addEventListener("submit", async (e) => {
 
+        e.preventDefault();
 
+        const submitBtn = wishForm.querySelector(".btn-send");
 
-        wishForm.reset();
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "⏳ Mengirim...";
 
+        const name =
+            document.getElementById("nama").value.trim();
+
+        const hadir =
+            document.querySelector(
+                'input[name="kehadiran"]:checked'
+            )?.value || "";
+
+        const jumlah =
+            jumlahInput.value;
+
+        const message =
+            document.getElementById("ucapan").value.trim();
+
+        // VALIDASI
+
+        if (!name || !message) {
+
+            alert("Silakan isi nama dan ucapan.");
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "✨ Kirim RSVP";
+
+            return;
+
+        }
+
+        try {
+
+            const response = await fetch(WEB_APP_URL, {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8"
+                },
+
+                body: JSON.stringify({
+
+                    nama: name,
+                    kehadiran: hadir,
+                    jumlah: jumlah,
+                    ucapan: message
+
+                })
+
+            });
+
+            if (!response.ok) {
+
+                throw new Error("Gagal mengirim data.");
+
+            }
+
+            console.log(await response.text());
+
+            // Reset Form
+            wishForm.reset();
+
+            totalGuest = 1;
+
+            guestCount.textContent = "1";
+            jumlahInput.value = "1";
+
+            // Tampilkan Popup
+            if (popup) {
+
+                popup.classList.add("show");
+
+            }
+
+        } catch (err) {
+
+            console.error(err);
+
+            alert("Maaf, terjadi kesalahan saat mengirim RSVP.");
+
+        } finally {
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "✨ Kirim RSVP";
+
+        }
 
     });
 
